@@ -37,12 +37,12 @@ class NavigationPanelDetails extends Component {
   decideSnippetListItemClass (gistId) {
     if (gistId === this.props.activeGist) {
       if (this.props.gists[gistId].brief.public) {
-        return 'active-snippet-thumnail-public'
+        return 'active-snippet-thumbnail-public'
       } else {
-        return 'active-snippet-thumnail-private'
+        return 'active-snippet-thumbnail-private'
       }
     }
-    return 'snippet-thumnail'
+    return 'snippet-thumbnail'
   }
 
   renderSnippetThumbnails () {
@@ -53,7 +53,7 @@ class NavigationPanelDetails extends Component {
     // an empty array.
     if (!gistTags || !gistTags[activeGistTag] || gistTags[activeGistTag].length === 0) {
       return (
-        <div className='snippet-thumnail'></div>
+        <div className='snippet-thumbnail'></div>
       )
     }
 
@@ -92,10 +92,10 @@ class NavigationPanelDetails extends Component {
       const thumbnailTitle = title.length > 0 ? title : description
       const gistId = gist.brief.id
       snippetThumbnails.push(
-        <li className='snippet-thumnail-list-item' key={ gistId } ref={ gistId }>
+        <li className='snippet-thumbnail-list-item' key={ gistId } ref={ gistId }>
           <div className={ this.decideSnippetListItemClass(gistId) }
             onClick={ this.handleClicked.bind(this, gistId) }>
-            <div className='snippet-thumnail-description'>{ thumbnailTitle }</div>
+            <div className='snippet-thumbnail-description'>{ thumbnailTitle }</div>
           </div>
         </li>
       )
